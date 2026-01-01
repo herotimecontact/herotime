@@ -1,0 +1,61 @@
+/* AdSlot Component Styles */
+
+.ad-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.ad-label {
+  font-size: 0.75rem;
+  color: rgba(134, 239, 172, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.adsbygoogle {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Spacing utilities for ad placement */
+.ad-hero-bottom {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.ad-page-bottom {
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+}
+
+.ad-sidebar {
+  margin: 2rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ad-container {
+    margin: 1.5rem auto;
+  }
+
+  .ad-hero-bottom {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .ad-page-bottom {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ad-container {
+    padding: 0 0.5rem;
+  }
+}
