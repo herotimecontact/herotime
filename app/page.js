@@ -25,7 +25,7 @@ export default function Home() {
       
       {/* Fan Wall Section */}
       <div style={{ marginTop: '4rem', marginBottom: '3rem', overflow: 'visible' }} key={`wall-${refreshKey}`}>
-        <FanWall limit={12} />
+        <FanWall />
       </div>
 
       <div style={{ marginTop: '4rem', marginBottom: '3rem' }}>

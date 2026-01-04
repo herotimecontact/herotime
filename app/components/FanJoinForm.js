@@ -140,6 +140,7 @@ export default function FanJoinForm({ onSuccess }) {
             <option value="Germany">Germany</option>
             <option value="France">France</option>
             <option value="India">India</option>
+            <option value="Sri Lanka">Sri Lanka</option>
             <option value="Japan">Japan</option>
             <option value="Brazil">Brazil</option>
             <option value="Mexico">Mexico</option>
@@ -154,6 +155,10 @@ export default function FanJoinForm({ onSuccess }) {
             <option value="Russia">Russia</option>
             <option value="China">China</option>
             <option value="South Korea">South Korea</option>
+            <option value="Thailand">Thailand</option>
+            <option value="Vietnam">Vietnam</option>
+            <option value="Philippines">Philippines</option>
+            <option value="Indonesia">Indonesia</option>
             <option value="Singapore">Singapore</option>
             <option value="New Zealand">New Zealand</option>
             <option value="Argentina">Argentina</option>

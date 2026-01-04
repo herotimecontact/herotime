@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { fetchFans } from '@/lib/firestore';
+import { fetchFans, getFansCount } from '@/lib/firestore';
 import { getCountryCoordinates } from '@/lib/countryCoordinates';
 
 /**
@@ -11,6 +11,7 @@ import { getCountryCoordinates } from '@/lib/countryCoordinates';
  */
 export default function WorldMap({ maxFans = 100 }) {
   const [fans, setFans] = useState([]);
+  const [totalCount, setTotalCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [hoveredFans, setHoveredFans] = useState(null); // Changed to store array of fans
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
@@ -27,7 +28,11 @@ export default function WorldMap({ maxFans = 100 }) {
   const loadFans = async () => {
     try {
       setLoading(true);
-      const fetchedFans = await fetchFans(maxFans);
+      // Fetch both the fans data and total count
+      const [fetchedFans, count] = await Promise.all([
+        fetchFans(maxFans),
+        getFansCount()
+      ]);
       
       // Add coordinates to each fan
       const fansWithCoords = fetchedFans
@@ -38,6 +43,7 @@ export default function WorldMap({ maxFans = 100 }) {
         .filter(fan => fan.coords !== null); // Remove fans without valid coordinates
       
       setFans(fansWithCoords);
+      setTotalCount(count);
     } catch (err) {
       console.error('Error loading fans for map:', err);
     } finally {
@@ -267,7 +273,7 @@ export default function WorldMap({ maxFans = 100 }) {
       <div className="map-info">
         <span className="map-info-icon">🌍</span>
         <span className="map-info-text">
-          {fans.length} {fans.length === 1 ? 'fan' : 'fans'} from around the world
+          {totalCount} {totalCount === 1 ? 'fan' : 'fans'} from around the world
         </span>
       </div>
     </div>
